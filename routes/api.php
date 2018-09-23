@@ -18,7 +18,19 @@ use Illuminate\Http\Request;
 // });
 
 // apiResources + ruta + archivo de controlador
-Route::apiResource('users','UserController');
-Route::apiResource('products','ProductController'); 
-Route::apiResource('transactions','TransactionController');
-Route::apiResource('categories','CategoryController');
+// Route::apiResource('users','UserController');
+// Route::apiResource('products','ProductController'); 
+// Route::apiResource('transactions','TransactionController');
+// Route::apiResource('categories','CategoryController');
+//Buyers
+Route::resource('buyers', 'Buyer\BuyerController',['only'=>['index','show']]);
+//Categories
+Route::resource('categories', 'Category\CategoryController',['except'=>['create','edit']]);
+//products
+Route::resource('products', 'Product\ProductController',['only'=>['index','show']]);
+//Transactions
+Route::resource('transactions', 'Transaction\TransactionController',['only'=>['index','show']]);
+//Sellers
+Route::resource('sellers', 'Seller\SellerController',['only'=>['index','show']]);
+//Users
+Route::resource('users', 'User\UserController',['except'=>['create','edit']]);
